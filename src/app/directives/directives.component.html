@@ -1,0 +1,49 @@
+<!-- <div class="alert alert-success" *ngIf="bookOffer;else noBookOffer" >Books are available at offer !!!</div>
+<ng-template #noBookOffer>
+<div class="alert alert-secondary" >
+  Books are not available !
+</div>
+</ng-template> -->
+
+<!-- <ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link" (click)="viewmode='list'" [class.active]="viewmode=='list'">ListView</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="viewmode='grid'" [class.active]="viewmode=='grid'">GridView</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="viewmode='map'" [class.active]="viewmode=='map'">MapView</a>
+  </li>
+</ul>
+<div [ngSwitch]="viewmode">
+  <div *ngSwitchCase="'list'">List Content here........</div>
+  <div *ngSwitchCase="'grid'">Grid Content Here........</div>
+  <div *ngSwitchCase="'map'">Map Content Here ........</div>
+  <div *ngSwitchDefault>Invalid View Mode</div>
+</div> -->
+
+<!-- <button class="btn btn-primary" (click)="loadCourses()">Load Courses</button>
+<div class="container" *ngIf="courses.length > 0">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Course Name</th>
+      <th scope="col">Course Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses;index as i;even as e;odd as o;first as f">
+      <th scope="row">{{ (i+1) }}</th>
+      <td>{{ course.name }}</td>
+      <td>{{ course.price }}</td>
+    </tr>
+  </tbody>
+</table>
+</div> -->
+<!-- 
+<div [ngClass]="{ offer1 : offer1 , offer2 : offer2 }" >Courses are available at better price</div>
+<div [ngStyle]="{ 'background-color' : bgColor , 'color' : color }" >Best discount available</div> -->
+
+PAN Number : <input type="text" pan >

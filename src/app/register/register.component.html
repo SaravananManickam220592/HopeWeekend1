@@ -1,0 +1,38 @@
+<form [formGroup]="registerForm" >
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email"  class="form-control"  formControlName="email" name="email" id="email" 
+      placeholder="Enter email">
+    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+      <div *ngIf="email.errors.required" >Please enter your email</div>
+      <div *ngIf="email.errors.email" >Please enter a valid email</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control"  name="name"  id="name"
+     formControlName="name"
+    placeholder="Enter name">
+    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+      <div *ngIf="name.errors.required">Please enter your name</div>
+      <div *ngIf="name.errors.minlength">Name should have minimum 
+        {{ name.errors.minlength.requiredLength }} characters</div>
+      <div *ngIf="name.errors.usernameShouldNotContainSpace">Username should not contain space</div>
+      <div *ngIf="name.errors.usernameNotUnique" >Username already taken</div>
+    </div>
+    <div *ngIf="name.pending" class="alert alert-primary">Checking username availability</div>
+  </div>
+  <div class="form-group">
+    <label for="mobile">Mobile</label>
+    <input type="text" class="form-control" name="mobile" id="mobile" 
+    formControlName="mobile" maxlength="10"
+    placeholder="Enter mobile">
+    <div class="alert alert-danger"  *ngIf="mobile.touched && mobile.invalid">
+        <div *ngIf="mobile.errors.required">Please enter your mobile</div>
+      <div *ngIf="mobile.errors.minlength"> Mobile number should have minimum 
+        {{ mobile.errors.minlength.requiredLength }} digits</div>
+      <div *ngIf="mobile.errors.pattern"> Mobile number should contain only digits</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

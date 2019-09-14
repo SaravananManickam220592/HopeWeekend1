@@ -1,0 +1,13 @@
+<!-- <h3>Today Flash Deal : {{ getOfferProduct() }}</h3>
+<h3>Offer Price for pack of 2: {{ price * 2}}</h3>
+Product Image <img [src]="imageUrl">
+<button [hidden]="btnStatus">Buy</button>
+<div [class.offer]="productoffer">Today Best Offer</div>
+<div [style.color]="fontColor">Flash Deal</div> -->
+<!-- Enter Product Name : <input type="text" #item ><button (click)="addItem(item)">Add</button> -->
+<!-- Enter Product Name : <input type="text" [(ngModel)]="item">
+<h3>Item Entered : {{ item }}</h3> -->
+<h3>Offer Product : {{ todayOfferProduct | capitalize}}</h3>
+<h3>Today  : {{ today | date : 'MM-dd-yyyy hh:mm:ss a' }}</h3>
+<h3>Price : {{ price | currency : 'INR' : 'code'}}</h3>
+<h3>Interest : {{  interest | percent }}</h3>

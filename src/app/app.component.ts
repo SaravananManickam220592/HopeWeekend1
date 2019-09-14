@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first-app';
+
+  post:any = { likesCount :89 , isLiked : false};
+
+  likeChanged(likeData){
+    console.log(likeData);
+  }
 }
