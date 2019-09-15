@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="alert alert-success" *ngIf="addStatus">Student saved successfully</div>
+  <div class="alert alert-danger"  *ngIf="deleteStatus">Student removed successfully</div>
+  <div class="alert alert-danger" *ngIf="error" > Something went wrong !please trye after sometime</div>
+  <form ngForm #studentForm="ngForm" (ngSubmit)="registerStudent(studentForm)">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" email class="form-control" ngModel name="email" #email="ngModel" id="email" required
+        placeholder="Enter email">
+      <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+        <div *ngIf="email.errors.required" >Please enter your email</div>
+        <div *ngIf="email.errors.email" >Please enter a valid email</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" required name="name" minlength="4" ngModel #name="ngModel" id="name" placeholder="Enter name">
+      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+        <div *ngIf="name.errors.required">Please enter your name</div>
+        <div *ngIf="name.errors.minlength">Name should have minimum {{ name.errors.minlength.requiredLength }} characters</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="mobile">Mobile</label>
+      <input type="text" class="form-control" pattern="^[0-9]*$"  required name="mobile" maxlength="10" minlength="10" ngModel #mobile="ngModel" id="mobile" placeholder="Enter mobile">
+      <div class="alert alert-danger"  *ngIf="mobile.touched && mobile.invalid">
+          <div *ngIf="mobile.errors.required">Please enter your mobile</div>
+        <div *ngIf="mobile.errors.minlength"> Mobile number should have minimum {{ mobile.errors.minlength.requiredLength }} digits</div>
+        <div *ngIf="mobile.errors.pattern"> Mobile number should contain only digits</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="studentForm.invalid">Submit</button>
+  </form>
+</div>
+<div class="container" >
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile</th>
+        <th scope="col" >Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students;index as i">
+        <th scope="row">{{ (i+1) }}</th>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{  student.mobile }}</td>
+        <td><button class="btn btn-danger" (click)="deleteStudent(student._id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

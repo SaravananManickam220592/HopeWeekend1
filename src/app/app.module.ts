@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FruitsComponent } from './fruits/fruits.component';
@@ -14,6 +15,7 @@ import { CardComponent } from './card/card.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { StudentComponent } from './student/student.component';
 import { RegisterComponent } from './register/register.component';
+import { CrudComponent } from './crud/crud.component';
 
 
 @NgModule({
@@ -28,12 +30,14 @@ import { RegisterComponent } from './register/register.component';
     DirectivesComponent,
     PanDirective,
     StudentComponent,
-    RegisterComponent
+    RegisterComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

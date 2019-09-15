@@ -1,44 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
-    selector : 'grocery',
+    selector : 'app-grocery',
     templateUrl :  './grocery.component.html',
     styleUrls : ['./grocery.component.css']
 })
-export class GroceryComponent{
+export class GroceryComponent {
 
-    todayOfferProduct:string = 'sugar';
-    price:number = 890000;
-    imageUrl:string = 'https://cdn.fcglcdn.com/brainbees/images/products/438x531/3562a.jpg';
-    btnStatus:boolean = true;
-    productoffer:boolean = false;
-    fontColor:string='blue';
-    items:any[]=[];
+    todayOfferProduct = 'sugar';
+    price = 890000;
+    imageUrl = 'https://cdn.fcglcdn.com/brainbees/images/products/438x531/3562a.jpg';
+    btnStatus = true;
+    productoffer = false;
+    fontColor = 'blue';
+    items: any[] = [];
     today = new Date();
     interest = 0.15;
 
-    item:string='sugar';
+    @ViewChild('item') viewitem:ElementRef;
 
-    getOfferProduct(){
+    item = 'sugar';
+
+    getOfferProduct() {
         return 'Soap';
     }
 
 
-    itemEntered(itemEvent){
-        if(itemEvent.keyCode === 13){
-            var value = itemEvent.target.value;
+    itemEntered(itemEvent) {
+        if (itemEvent.keyCode === 13) {
+            const value = itemEvent.target.value;
             this.items.push(value);
-            itemEvent.target.value='';
+            itemEvent.target.value = '';
             console.log(this.items);
         }
     }
 
-    addItem(item){
-        var value = item.value;
+    addItem() {
+        const value = this.viewitem.nativeElement.value;
         this.items.push(value);
-        item.value ='';
-        console.log(this.items)
+        this.viewitem.nativeElement.value = '';
+        console.log(this.items);
     }
 
 }

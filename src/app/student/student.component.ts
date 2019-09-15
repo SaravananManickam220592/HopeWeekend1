@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-student',
@@ -8,16 +9,16 @@ import { NgForm } from '@angular/forms';
 })
 export class StudentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private studentService:StudentService) { }
 
   ngOnInit() {
   }
 
-  emailControl(email){
+  emailControl(email) {
     console.log(email);
   }
 
-  registerStudent(studentForm:NgForm){
+  registerStudent(studentForm: NgForm) {
     console.log(studentForm.value);
   }
 
