@@ -18,6 +18,20 @@ export class GroceryComponent {
     today = new Date();
     interest = 0.15;
 
+    grocery = [{
+        id: 1 ,
+        name : 'dhal'
+    },{
+        id: 2 ,
+        name : 'fruits'
+    },{
+        id: 3 ,
+        name : 'vegetables'
+    },{
+        id: 4 ,
+        name : 'dairy'
+    }]
+
     @ViewChild('item') viewitem:ElementRef;
 
     item = 'sugar';

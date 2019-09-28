@@ -11,3 +11,9 @@ Product Image <img [src]="imageUrl">
 <h3>Today  : {{ today | date : 'MM-dd-yyyy hh:mm:ss a' }}</h3>
 <h3>Price : {{ price | currency : 'INR' : 'code'}}</h3>
 <h3>Interest : {{  interest | percent }}</h3> -->
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let g of grocery;index as i">
+        <a routerLink="grocerylist" [queryParams]="{ name : g.name , id : g.id}">{{ (i+1)+'-'+g.name}}</a>
+    </li>
+</ul>
